@@ -162,8 +162,8 @@ DataFileMain.flush()
 DataFileTime = open(DataFileNameTime, "w", newline='')
 DataTime = csv.writer(DataFileTime)
 DataTime.writerow(
-    ['SID', 'trial', 'step', 'instanceOnset', 'difficultyEstOnset', 'performanceEstOnset', 'decisionStartOnset',
-     'stepTime'])
+    ['SID', 'trial', 'instanceID','step', 'instanceOnset', 'difficultyEstOnset', 'performanceEstOnset',
+     'decisionStartOnset', 'stepTime'])
 DataFileTime.flush()
 
 # shuffle instance and save for this subject
@@ -309,7 +309,7 @@ for i in range(0, len(instances)):
                         dataToWrite.append(x)
                     DataMain.writerow(dataToWrite)
                     DataTime.writerow(
-                        [SID, i, step, instanceOnset, difficulty_estimate_onset,
+                        [SID, i, oriIdx[i], step, instanceOnset, difficulty_estimate_onset,
                          performance_estimate_onset, decision_start_onset, step_time])
                     DataFileTime.flush()
                     DataFileMain.flush()
